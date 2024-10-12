@@ -1,1 +1,1 @@
-# odin-rps
+This is a Rock Paper Scissors game played entirely in the console.
