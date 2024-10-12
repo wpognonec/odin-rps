@@ -1,43 +1,43 @@
-const CHOICES = ["rock", "paper", "scissors"]
+const CHOICES = ["rock", "paper", "scissors"];
 const WIN_COMBO = {
   "rock":"scissors",
   "paper":"rock",
   "scissors":"paper"
-}
+};
 
 function getComputerChoice() {
-  return CHOICES[Math.floor(Math.random() * 3)]
+  return CHOICES[Math.floor(Math.random() * 3)];
 }
 
 function getHumanChoice() {
-  return prompt("Enter rock, paper, or scissors")
+  return prompt("Enter rock, paper, or scissors");
 }
 
 function getResult(humanChoice, computerChoice) {
   if (WIN_COMBO[humanChoice] === computerChoice) {
-    return "win"
+    return "win";
   } else if (WIN_COMBO[computerChoice] === humanChoice) {
-    return "lose"
+    return "lose";
   } else {
-    return "tie"
+    return "tie";
   }
 }
 
 function playGame() {
   function playRound() {
-    let humanChoice = getHumanChoice().toLowerCase()
-    let computerChoice = getComputerChoice()
+    let humanChoice = getHumanChoice().toLowerCase();
+    let computerChoice = getComputerChoice();
     console.log("You have chosen", humanChoice);
     console.log("Computer has chosen", computerChoice);
-    let result = getResult(humanChoice, computerChoice)
+    let result = getResult(humanChoice, computerChoice);
 
     switch (result) {
       case "win":
-        humanScore++
+        humanScore++;
         console.log("You win!");
         break;
       case "lose":
-        computerScore++
+        computerScore++;
         console.log("You lose!");
         break;
       case "tie":
@@ -52,12 +52,12 @@ function playGame() {
 
   let humanScore = 0;
   let computerScore = 0;
-  let i = 5
+  let i = 5;
 
   do {
     playRound();
-    i--
+    i--;
   } while (i);
 }
 
-playGame()
+playGame();
