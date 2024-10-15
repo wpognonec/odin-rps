@@ -33,8 +33,6 @@ buttons.forEach((button) => {
 
 function playRound(humanChoice) {
   let computerChoice = getComputerChoice();
-  console.log("You have chosen", humanChoice);
-  console.log("Computer has chosen", computerChoice);
   let result = getResult(humanChoice, computerChoice);
 
   if (humanScore === 5 || computerScore === 5) {
