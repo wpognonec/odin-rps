@@ -37,6 +37,12 @@ function playRound(humanChoice) {
   console.log("Computer has chosen", computerChoice);
   let result = getResult(humanChoice, computerChoice);
 
+  if (humanScore === 5 || computerScore === 5) {
+    document.querySelector("#gameWinner").textContent = ""
+    computerScore = 0
+    humanScore = 0
+  }
+
   switch (result) {
     case "win":
       humanScore++;
@@ -54,6 +60,11 @@ function playRound(humanChoice) {
   }
 
   document.querySelector("#score").textContent = `The current score is player: ${humanScore} computer: ${computerScore}`;
+    if (humanScore === 5) {
+      document.querySelector("#gameWinner").textContent = "You have won the game!!"
+    } else if (computerScore === 5) {
+      document.querySelector("#gameWinner").textContent = "Computer has won the game!!"
+    }
 }
 
 let humanScore = 0;
