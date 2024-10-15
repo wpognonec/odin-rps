@@ -23,41 +23,38 @@ function getResult(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  function playRound() {
-    let humanChoice = getHumanChoice().toLowerCase();
-    let computerChoice = getComputerChoice();
-    console.log("You have chosen", humanChoice);
-    console.log("Computer has chosen", computerChoice);
-    let result = getResult(humanChoice, computerChoice);
+const buttons = document.querySelectorAll('button')
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    playRound(e.target.id)
+  })
+})
 
-    switch (result) {
-      case "win":
-        humanScore++;
-        console.log("You win!");
-        break;
-      case "lose":
-        computerScore++;
-        console.log("You lose!");
-        break;
-      case "tie":
-        console.log("It's a tie!");
-        break;
-      default:
-        break;
-    }
 
-    console.log(`The current score is player: ${humanScore} computer: ${computerScore}`);
+function playRound(humanChoice) {
+  let computerChoice = getComputerChoice();
+  console.log("You have chosen", humanChoice);
+  console.log("Computer has chosen", computerChoice);
+  let result = getResult(humanChoice, computerChoice);
+
+  switch (result) {
+    case "win":
+      humanScore++;
+      console.log("You win!");
+      break;
+    case "lose":
+      computerScore++;
+      console.log("You lose!");
+      break;
+    case "tie":
+      console.log("It's a tie!");
+      break;
+    default:
+      break;
   }
 
-  let humanScore = 0;
-  let computerScore = 0;
-  let i = 5;
-
-  do {
-    playRound();
-    i--;
-  } while (i);
+  console.log(`The current score is player: ${humanScore} computer: ${computerScore}`);
 }
 
-playGame();
+let humanScore = 0;
+let computerScore = 0;
