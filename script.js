@@ -40,20 +40,20 @@ function playRound(humanChoice) {
   switch (result) {
     case "win":
       humanScore++;
-      console.log("You win!");
+      document.querySelector("#result").textContent = "You Win!!"
       break;
     case "lose":
       computerScore++;
-      console.log("You lose!");
+      document.querySelector("#result").textContent = "You Lose!"
       break;
     case "tie":
-      console.log("It's a tie!");
+      document.querySelector("#result").textContent = "It's a tie!"
       break;
     default:
       break;
   }
 
-  console.log(`The current score is player: ${humanScore} computer: ${computerScore}`);
+  document.querySelector("#score").textContent = `The current score is player: ${humanScore} computer: ${computerScore}`;
 }
 
 let humanScore = 0;
